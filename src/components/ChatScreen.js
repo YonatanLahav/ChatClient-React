@@ -20,7 +20,7 @@ const ChatScreen = (props) => {
         async function connectSignalR() {
             try {
                 const connection = new HubConnectionBuilder()
-                    .withUrl('https://' + serverPath + '/chathub')
+                    .withUrl('http://' + serverPath + '/chathub')
                     .configureLogging(LogLevel.Information)
                     .build();
 

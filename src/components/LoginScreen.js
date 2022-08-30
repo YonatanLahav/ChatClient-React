@@ -26,7 +26,7 @@ const Login = (props) => {
         event.preventDefault();
         var inputUsername = document.getElementById("email").value;
         var inputPassword = document.getElementById("password").value;
-        var loggedUser = await postLogin('https://' + serverPath + '/Login', { Id: inputUsername, Password: inputPassword });
+        var loggedUser = await postLogin('http://' + serverPath + '/Login', { Id: inputUsername, Password: inputPassword });
         if (loggedUser == null)
             alert("Invalid username or password !")
         else {

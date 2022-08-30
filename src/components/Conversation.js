@@ -19,18 +19,18 @@ const Conversation = (props) => {
         event.preventDefault();
         inMessage = document.getElementById("newMessage").value;
         document.getElementById("newMessage").value = '';
-        const AddMesageToUser = await fetch('https://' + serverPath + '/Api/contacts/' + props.chatWith + '/messages?username=' + props.user, {
+        const AddMesageToUser = await fetch('http://' + serverPath + '/Api/contacts/' + props.chatWith + '/messages?username=' + props.user, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ content: inMessage })
         });
-        const getContactServer = await fetch('https://' + serverPath + '/Api/contacts/' + props.chatWith + '?username=' + props.user, {
+        const getContactServer = await fetch('http://' + serverPath + '/Api/contacts/' + props.chatWith + '?username=' + props.user, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         });
         var response = await getContactServer.json();
         var server = response['server'];
-        const AddMesageToContact = await fetch('https://' + server + '/Api/transfer', {
+        const AddMesageToContact = await fetch('http://' + server + '/Api/transfer', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ from: props.user, to: props.chatWith, content: inMessage })
@@ -43,7 +43,7 @@ const Conversation = (props) => {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch('https://' + serverPath + '/Api/contacts/' + props.chatWith + '/messages?username=' + props.user);
+            const res = await fetch('http://' + serverPath + '/Api/contacts/' + props.chatWith + '/messages?username=' + props.user);
             const data = await res.json();
             setList(data);
         }

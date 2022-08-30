@@ -72,7 +72,7 @@ const SignUp = (props) => {
             return;
         }
 
-        var registerUser = await postRegister('https://' + serverPath + '/Register',
+        var registerUser = await postRegister('http://' + serverPath + '/Register',
             { Id: inUsername, Password: inPassword, Nickname: inNickname });
 
         if (registerUser == null)

@@ -11,7 +11,7 @@ const ChatList = (props) => {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch('https://' + serverPath + '/Api/contacts?username=' + props.user);
+            const res = await fetch('http://' + serverPath + '/Api/contacts?username=' + props.user);
             const data = await res.json();
             console.log(data);
             setChatsList(data);
@@ -26,7 +26,7 @@ const ChatList = (props) => {
         var server = document.getElementById("server").value;
         // const data = await response.json();
         try {
-            const response = await fetch('https://' + server + '/Api/invitations', {
+            const response = await fetch('http://' + server + '/Api/invitations', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ from: props.user, to: inid, server: serverPath })
@@ -42,7 +42,7 @@ const ChatList = (props) => {
         var inid = document.getElementById("newContact").value;
         var inname = document.getElementById("newName").value;
         var server = document.getElementById("server").value;
-        const response = await fetch('https://' + serverPath + '/Api/contacts?username=' + props.user, {
+        const response = await fetch('http://' + serverPath + '/Api/contacts?username=' + props.user, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: inid, name: inname, server: server })
