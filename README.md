@@ -1,5 +1,5 @@
 # Instruction for the entire project
- for this program you need to clone two repositories, the first one is this repositry (ChatClient-React), and the second repository is ChatServer (https://github.com/YonatanLahav/ChatServer).
+for this program you need to clone two repositories, the first one is this repositry (ChatClient-React), and the second repository is ChatServer (https://github.com/YonatanLahav/ChatServer).
  
  ## ChatServer instructions
  after cloning ChatServer repository, do the following:
